@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://www.freeiconspng.com/thumbs/blue-flames-png/blue-flames-png-33.png">
+    <title>Converter - HeatWave</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Poppins', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .parallax-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#0071eb, #00b7ff);
+            position: absolute;
+            z-index: -1;
+        }
+
+        .clouds {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            animation: cloudAnimation 30s linear infinite;
+            z-index: 1;
+
+        }
+
+        @keyframes cloudAnimation {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding-bottom: 20%;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .temperature-converter {
+            background-color: #ffffff79;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px #00000074;
+            margin: 20px auto;
+            max-width: 400px;
+            animation: fadeIn 1s ease-in-out 0.5s;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .temperature-converter .input-group {
+            margin: 20px 0;
+        }
+
+        .number .copy-button {
+            display: flex;
+            flex-direction: row;
+        }
+
+
+        .temperature-converter .input-group label {
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+
+
+        .temperature-converter .input-group input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .temperature-converter .input-group input:focus {
+            border-color: #00abf0;
+        }
+
+        .temperature-converter .result {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #0184ff;
+            font-size: 20px;
+            animation: slideIn 1s;
+        }
+
+        .temperature-converter .copy-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #00abf0;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .temperature-converter .copy-button:hover {
+            background-color: #007BFF;
+        }
+
+        .clear:hover {
+            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Sun Animation */
+        .sun {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #ffdb4d 20%, transparent 40%);
+            border-radius: 50%;
+            animation: rotateSun 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateSun {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="Home.html" class="logo">
+            <img src="https://www.freeiconspng.com/thumbs/blue-flames-png/blue-flames-png-33.png" alt="logo" width="5%">
+            HeatWave.
+        </a>
+        <nav class="navbar">
+            <a href="Home.html" style="--i:1">Home</a>
+            <a href="TempConv.html" style="--i:2" class="active">Tempconv</a>
+            <a href="Aboutus.html" style="--i:3">About</a>
+            <a href="Help.html" style="--i:4">Help</a>
+            <a href="ContactTC.html" style="--i:5">Contact</a>
+        </nav>
+        <div class="bx bx-menu" id="menu"></div>
+        <div class="bx bx-sun" id="light-mode-toggle"></div>
+        <div class="bx bx-moon hidden" id="dark-mode-toggle"></div>
+
+    </header>
+
+ 
+        <div class="parallax-container">
+            <div class="background"></div>
+            <img src="https://www.freepnglogos.com/uploads/cloud-png/real-cloud-picture-8.png" alt="Clouds"
+                class="clouds">
+            <div class="content">
+                <h1>Today's Weather</h1>
+                <p>It's a beautiful day with clear skies and a gentle breeze.</p>
+            </div>
+            <div class="sun"></div>
+        </div>
+
+        <div class="temperature-converter">
+            <h1 style="font-size: 190%;">Temperature Converter</h1>&nbsp;
+            <div class="input-group">
+                <label for="celsius">Celsius (°C):</label><br>
+                <input type="number" id="celsius" placeholder="Enter Celsius"
+                    oninput="convertTemperature(this.value, 'celsius')">
+                <button class="copy-button" onclick="copyCelsius()"><i class='bx bxs-copy'></i></button>
+            </div>
+
+            <div class="input-group">
+                <label for="fahrenheit">Fahrenheit (°F):</label><br>
+                <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit"
+                    oninput="convertTemperature(this.value, 'fahrenheit')">
+                <button class="copy-button" onclick="copyFahrenheit()"><i class='bx bxs-copy'></i></button>
+            </div>
+            <div class="input-group">
+                <label for="kelvin">Kelvin (K):</label><br>
+                <input type="number" id="kelvin" placeholder="Enter Kelvin"
+                    oninput="convertTemperature(this.value, 'kelvin')">
+                <button class="copy-button" onclick="copyKelvin()"><i class='bx bxs-copy'></i></button>
+            </div>
+            <div class="result" id="result"></div>
+            <button class="clear" onclick="clearValues()"
+                style="background: #777; padding: 3%; transform: translateY(10px); border: none; border-radius: 8px; color: white;"><i
+                    class='bx bxs-trash-alt'></i> Clear All</button>
+        </div>
+ 
+
+   
+    <script>
+        function convertTemperature(value, unit) {
+            const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("fahrenheit");
+            const kelvinInput = document.getElementById("kelvin");
+            const resultElement = document.getElementById("result");
+
+            if (unit === 'celsius') {
+                celsiusInput.value = value;
+                fahrenheitInput.value = (value * 9 / 5) + 32;
+                kelvinInput.value = parseFloat(value) + 273.15;
+            } else if (unit === 'fahrenheit') {
+                fahrenheitInput.value = value;
+                celsiusInput.value = (value - 32) * 5 / 9;
+                kelvinInput.value = (value - 32) * 5 / 9 + 273.15;
+            } else if (unit === 'kelvin') {
+                kelvinInput.value = value;
+                celsiusInput.value = value - 273.15;
+                fahrenheitInput.value = (value - 273.15) * 9 / 5 + 32;
+            }
+
+            resultElement.innerText = `${celsiusInput.value}°C = ${fahrenheitInput.value}°F = ${kelvinInput.value}K`;
+        }
+
+        function clearValues() {
+            const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("fahrenheit");
+            const kelvinInput = document.getElementById("kelvin");
+            const resultElement = document.getElementById("result");
+
+            celsiusInput.value = "";
+            fahrenheitInput.value = "";
+            kelvinInput.value = "";
+            resultElement.innerText = "";
+        }
+
+        function copyCelsius() {
+            const celsiusInput = document.getElementById("celsius");
+            copyToClipboard(celsiusInput.value);
+        }
+
+        function copyFahrenheit() {
+            const fahrenheitInput = document.getElementById("fahrenheit");
+            copyToClipboard(fahrenheitInput.value);
+        }
+
+        function copyKelvin() {
+            const kelvinInput = document.getElementById("kelvin");
+            copyToClipboard(kelvinInput.value);
+        }
+
+        function copyToClipboard(value) {
+            const tempInput = document.createElement("input");
+            tempInput.value = value;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+        }
+    </script>
+    <script>
+        const lightModeToggle = document.getElementById('light-mode-toggle');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        
+        lightModeToggle.addEventListener('click', () => {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            lightModeToggle.style.display = 'none';
+            darkModeToggle.style.display = 'block';
+ 
+            document.querySelector('.background').style.background = 'linear-gradient(#007BFF, #00ABF0)';
+            document.querySelector('.sun').style.display = 'block';
+            document.querySelector('.moon').style.display = 'none';
+        });
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            lightModeToggle.style.display = 'block';
+            darkModeToggle.style.display = 'none';
+ 
+            document.querySelector('.background').style.background = 'linear-gradient(#0c1445, #050c30)';
+
+            document.querySelector('.moon').style.display = 'block';
+            document.querySelector('.sun').style.display = 'none';
+        });
+        
+    </script>
+
+
+
+
+</body>
+
+</html>

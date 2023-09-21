@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="https://www.freeiconspng.com/thumbs/blue-flames-png/blue-flames-png-33.png">
+    <title>About Us - HeatWave</title>
+    <style>
+        body,
+        h1,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-page {
+            background-image: url('https://images.pexels.com/photos/2531709/pexels-photo-2531709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            background-color: #00000080;
+            background-blend-mode: hard-light;
+        }
+
+        .about-page h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            color: #00aeff;
+            font-size: 400%;
+        }
+
+        .about-page p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 150%;
+            font-weight: 300px;
+        }
+
+        .content-container {
+            width: 60%;
+            height: 60%;
+            margin: 0 auto;
+            padding: 5rem;
+            color: #ffffffc8;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 10px #00000033;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+
+
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        :root {
+            --bg-color: #081b29;
+            --second-bg-color: #112e42;
+            --text-color: #f5efef;
+            --main-color: #00aeff;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.5s, color 0.5s;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 10px #fff700, 0 0 20px #f0e80b;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 3.5rem;
+            transform: translateX(-20%);
+            opacity: 0;
+            cursor: default;
+            animation: slideright 1s ease forwards;
+            font-weight: bolder;
+        }
+
+        @keyframes slideright {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        .navbar a {
+            font-size: 1.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 3.5rem;
+            transition: .3s;
+            padding: 18px;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+            font-weight: bolder;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+        }
+
+        a[href^="#"] {
+            transition: all 0.3s ease-in-out;
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            text-decoration: overline;
+            color: var(--main-color);
+        }
+
+        #menu {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            cursor: pointer;
+            display: none;
+        }
+
+        h1,
+        p {
+            animation: slideTop .5s ease forwards;
+        }
+
+
+        /* Innovative styling for the about page content */
+        .innovative-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .innovative-icon {
+            font-size: 4rem;
+            color: #52fcfc;
+        }
+
+        /* Effective styling for the about page content */
+        .effective-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .effective-icon {
+            font-size: 4rem;
+            color: #f97408;
+        }
+
+
+        .appealing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .appealing-icon {
+            font-size: 4rem;
+            color: #f0e80b;
+        }
+
+        .appealing-icon:hover,
+        .effective-icon:hover,
+        .innovative-icon:hover {
+
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="Home.html" class="logo">
+            <img src="https://www.freeiconspng.com/thumbs/blue-flames-png/blue-flames-png-33.png" alt="logo" width="5%">
+            HeatWave.
+        </a>
+        <nav class="navbar">
+            <a href="Home.html" style="--i:1">Home</a>
+            <a href="TempConv.html" style="--i:2">Tempconv</a>
+            <a href="Aboutus.html" style="--i:3" class="active">About</a>
+            <a href="Help.html" style="--i:4">Help</a>
+            <a href="ContactTC.html" style="--i:5">Contact</a>
+        </nav>
+        <div class="bx bx-menu" id="menu"></div>
+    </header>
+
+    <div class="about-page">
+        <div class="content-container">
+            <h1 style="text-align: center; text-shadow: 0 6px 6px #ffffff85; ">About Us</h1><br>
+            <style>
+                li,
+                b {
+                    font-size: 16px;
+                    line-height: 200%;
+                    margin-left: 1.5%;
+                    opacity: 0;
+                    animation: slideright 1s ease forwards .3s;
+
+                }
+
+                b {
+                    color: #00aeff;
+                }
+
+
+                h1:hover {
+                    color: #7bccff;
+                    font-size: 150px;
+                }
+            </style>
+            <p>Welcome to <span style="color: #00aeff;">Heat</span><span style="color: aqua;">Wave<span><span
+                            style="color: #f1f1f1;">, your trusted source for temperature conversion and weather
+                            information. We are
+                            passionate about providing you with:</span></p>
+
+            <ul>
+                <li><b>User-Friendly Tools:</b> An easy-to-use temperature conversion tool.</li>
+            </ul>
+            <br>
+            <p>Our mission is to make weather-related information accessible to everyone, from casual weather
+                enthusiasts to professionals who rely on precise temperature conversions in their work. At HeatWave, we
+                are committed to:</p>
+
+            <ul>
+                <li><b>Quality:</b> Delivering the highest quality services.</li>
+                <li><b>Accessibility:</b> Ensuring that you have the tools you need to stay informed about the
+                    weather and make temperature conversions with ease.</li>
+            </ul>
+            <br>
+            <p>Thank you for choosing HeatWave as your go-to weather and temperature conversion resource. We look
+                forward to serving you and helping you make the most of your weather-related needs.</p>
+
+
+            <br>
+            <div class="innovative-container">
+                <i class="bx bx-rocket innovative-icon"></i>
+                <p><span style="color:#52fcfc; font-weight: bolder;">Innovative:</span><br>We constantly innovate to
+                    provide you with
+                    cutting-edge solutions for temperature conversion and weather information.</p>
+            </div>
+            <div class="effective-container">
+                <i class="bx bx-check-shield effective-icon"></i>
+                <p><span style="color:#f97408; font-weight: bolder;">Effective:</span><br>Our services are designed to
+                    be highly effective,
+                    ensuring you get accurate weather data and seamless temperature conversions.</p>
+            </div>
+            <div class="appealing-container">
+                <i class="bx bx-paint appealing-icon"></i>
+                <p><span style="color:#f0e80b; font-weight: bolder;">Appealing:</span><br>We focus on making our
+                    platform visually appealing
+                    and user-friendly, enhancing your experience.</p>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</body>
+
+
+</html>

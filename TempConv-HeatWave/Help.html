@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="#">
+    <title>Help - HeatWave</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            line-height: 150%;
+
+        }
+
+        :root {
+            --bg-color: #081b29;
+            --second-bg-color: #112e42;
+            --text-color: #f5efef;
+            --main-color: #00aeff;
+        }
+
+
+        html {
+            font-size: 62.5%;
+
+
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            background: url(weather.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            /*<--avoid scrolling*/
+            /*padding-top: 10%;*/
+
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 10px #fff700, 0 0 20px #f0e80b;
+            ;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 3.5rem;
+            transform: translateX(-30%);
+            font-weight: bolder;
+            opacity: 0;
+            cursor: default;
+            animation: slideright 1s ease forwards;
+        }
+
+        @keyframes slideright {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        .navbar a {
+            font-size: 1.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+            margin-left: 3.5rem;
+            transition: .3s;
+            padding: 18px;
+            font-weight: bolder;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+            opacity: 0;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+        }
+
+        a[href^="#"] {
+            transition: all 0.3s ease-in-out;
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+
+
+        .navbar a:hover,
+        .navbar a.active {
+            /*font-size: 2rem;*/
+            text-decoration: overline;
+            color: var(--main-color);
+        }
+
+        #menu {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            cursor: pointer;
+            display: none;
+        }
+
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: #04040473;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 8.2%;
+            /* width: 100vw;*/
+            height: 70vh;
+            /*display: flex;
+            flex-direction: column;
+            justify-content: center;*/
+        }
+
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .cta-button {
+            background-color: #00aeff;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #0099dd;
+        }
+
+        footer {
+            /*background-color: transparent;*/
+            background-color: #93939371;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3%;
+            font-weight: bolder;
+            font-size: 12px;
+            text-shadow: 0 0 10px #f0e80b;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="Home.html" class="logo" style="transform: translateX(8%);">
+            <img src="https://www.freeiconspng.com/thumbs/blue-flames-png/blue-flames-png-33.png" alt="logo" width="5%">
+            HeatWave.
+        </a>
+        <nav class="navbar">
+            <a href="Home.html" style="--i:1">Home</a>
+            <a href="TempConv.html" style="--i:2">Tempconv</a>
+            <a href="Aboutus.html" style="--i:3">About</a>
+            <a href="Help.html" class="active" style="--i:4">Help</a>
+            <a href="ContactTC.html" style="--i:5">Contact</a>
+        </nav>
+        <div class="bx bx-menu" id="menu"></div>
+    </header>
+
+    <div class="container">
+        <h1 style="text-align: center; color: #f9fcff; font-size: 25px;">Need Help with Temperature Conversion?</h1><br>
+
+        <h2 style="color: #ececec; font-size: 21px;">Frequently Asked Questions (FAQ)</h2>
+        <p><span class="icon"><i class='bx bxs-help-circle' style="color: #939393;"></i></span> <strong
+                style="color: #939393;">How do I use the Temperature
+                Converter?</strong><br>
+            Using our Temperature Converter is easy. Simply enter the temperature value in the respective input field
+            unit (e.g., Celsius, Fahrenheit) displays the desired output. Click the "Clear all" button to clear input
+            values.</p>
+
+        <p><span class="icon"><i class='bx bxs-help-circle' style="color:  #939393;"></i></span> <strong
+                style="color:  #939393;">What temperature units can I
+                convert?</strong><br>
+            You can convert between various temperature units, including Celsius (°C), Fahrenheit (°F), Kelvin (K), and
+            more.</p>
+
+        <p><span class="icon"><i class='bx bxs-help-circle' style="color:  #939393;"></i></span> <strong
+                style="color:  #939393;">How accurate are the
+                conversions?</strong><br>
+            Our converter provides accurate temperature conversions based on standard conversion formulas. It's a
+            reliable tool for everyday use.</p>
+
+        <p><span class="icon"><i class='bx bxs-help-circle' style="color:  #939393;"></i></span> <strong
+                style="color:  #939393;">Is this service free?</strong><br>
+            Yes, using our Temperature Converter is completely free, and no registration is required.</p>
+
+        <p><span class="icon"><i class='bx bxs-help-circle' style="color:  #939393;"></i></span> <strong
+                style="color:  #939393;">Can I use this on mobile
+                devices?</strong><br>
+            Absolutely! Our website is fully responsive and works seamlessly on both desktop and mobile devices.</p>
+
+        <h2 style="color: #ececec; font-size: 21px;">Contact Us</h2>
+        <p>If you have any further questions or need assistance, please feel free to reach out to our support team.
+            We're here to help!</p>
+
+        <a href="ContactTC.html" class="cta-button">Contact Support</a>
+    </div>
+    <footer>
+        &copy; 2023 HeatWave. All rights reserved.
+    </footer>
+</body>
+
+</html>
